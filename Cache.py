@@ -21,12 +21,24 @@ class Cache:
             print(r_bloque.id)
 
     def write_instruccion(self, instruccion):
-        w_bloque = self.encontrar_bloque()
-        if w_bloque is not None:
+        #Encuentro bloque disponible segun jerarquia
+        w_bloque = self.encontrar_bloque() 
+        #Write para el caso 1
+        if (w_bloque.state == "I" or w_bloque == "E" or w_bloque.state == "S"):
             w_bloque.dir = instruccion[1]
             w_bloque.data = instruccion[2]
             w_bloque.state = "M"
-            print(w_bloque.data)
+            return ["Done"]
+        #Write para el caso 2
+        elif (w_bloque.state == "M"):
+            print("Write Back")
+            return ["WB", instruccion[1], instruccion[2]]
+           
+        #Write para el caso 3
+        elif (w_bloque.state == "O"):
+            print("write nack")
+            print("Invalidacion por Escritura")
+            return ["WB", "IE", instruccion[1], instruccion[2]]
 
     def encontrar_bloque(self):
         for state in self.states:
@@ -37,4 +49,4 @@ class Cache:
         for bloque in self.bloques:
             if (state == bloque.state):
                 return bloque
-        return None
+        

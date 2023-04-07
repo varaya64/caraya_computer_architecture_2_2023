@@ -5,31 +5,29 @@ Created on Tue Apr  4 09:05:01 2023
 @author: valen
 """
 
-from Sistema import *
 from PyQt5 import QtWidgets, uic
+from Sistema import *
 
+class Ventana(QtWidgets.QMainWindow):
+    def __init__(self):
+        super().__init__()
 
-sistema = Sistema()
+        # Carga el archivo .ui
+        uic.loadUi("test.ui", self)
 
+        self.sistema = Sistema()
 
+        self.sendInstru.clicked.connect(self.ejecutarHilos)
 
-# Carga el archivo .ui
+    def ejecutarHilos(self):
+        self.sistema.ejecutarHilos()
+        self.instruccion1.setText(self.sistema.instrucciones_procesadores[0])
+        self.instruccion2.setText(self.sistema.instrucciones_procesadores[1])
+        self.instruccion3.setText(self.sistema.instrucciones_procesadores[2])
+        self.instruccion4.setText(self.sistema.instrucciones_procesadores[3])
+        
+
 app = QtWidgets.QApplication([])
-window = uic.loadUi("test.ui")
-
-window.sendInstru.clicked.connect(sistema.ejecutarHilos)
-
-dato = window.dataInput.text()
-procesa = window.pInput.currentText()
-direccion = window.dirInput.currentText()
-operacion = window.opInput.currentText()
-
-def inputData():
-    print(dato + " " + procesa + " " + direccion + " " + operacion)
-
-#window.sendInstru.clicked.connect(inputData)
-
-
-# Muestra la ventana
-window.show()
+ventana = Ventana()
+ventana.show()
 app.exec_()

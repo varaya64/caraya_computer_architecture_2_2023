@@ -10,7 +10,8 @@ class Sistema:
         self.P2 = Procesador(2)
         self.P3 = Procesador(3)
         self.MemoriaP = Memoria()
-        self.TipoInstruccion = ["read", "calc", "write"]
+        self.instrucciones_procesadores = [self.P0.instruccion_actual, self.P1.instruccion_actual, self.P2.instruccion_actual, self.P3.instruccion_actual]
+        self.instrucciones_GUI = []
 
     
     
