@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1469</width>
-    <height>786</height>
+    <width>1473</width>
+    <height>795</height>
    </rect>
   </property>
   <property name="font">
@@ -284,7 +284,7 @@
      <string>Detener Ejecución</string>
     </property>
    </widget>
-   <widget class="QComboBox" name="comboBox">
+   <widget class="QComboBox" name="pInput">
     <property name="geometry">
      <rect>
       <x>100</x>
@@ -314,7 +314,7 @@
      </property>
     </item>
    </widget>
-   <widget class="QComboBox" name="comboBox_2">
+   <widget class="QComboBox" name="dirInput">
     <property name="geometry">
      <rect>
       <x>250</x>
@@ -403,7 +403,7 @@
      <string>Dato</string>
     </property>
    </widget>
-   <widget class="QComboBox" name="comboBox_3">
+   <widget class="QComboBox" name="opInput">
     <property name="geometry">
      <rect>
       <x>580</x>

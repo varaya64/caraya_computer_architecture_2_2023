@@ -15,8 +15,7 @@ class Sistema:
     
     
     def generateInstru(self, procesador):
-        print(f"Generando instrucción para procesador {procesador.id}")
-        procesador.selectInstr()
+        procesador.generar_instruccion()
 
     def ejecutarHilos(self):
         # Crear cuatro hilos separados, cada uno ejecutando el método de una instancia diferente de la clase Procesador en paralelo

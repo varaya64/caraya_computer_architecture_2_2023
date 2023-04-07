@@ -11,14 +11,24 @@ from PyQt5 import QtWidgets, uic
 
 sistema = Sistema()
 
-def inputData():
-    print(window.dataInput.text())
+
 
 # Carga el archivo .ui
 app = QtWidgets.QApplication([])
 window = uic.loadUi("test.ui")
 
 window.sendInstru.clicked.connect(sistema.ejecutarHilos)
+
+dato = window.dataInput.text()
+procesa = window.pInput.currentText()
+direccion = window.dirInput.currentText()
+operacion = window.opInput.currentText()
+
+def inputData():
+    print(dato + " " + procesa + " " + direccion + " " + operacion)
+
+#window.sendInstru.clicked.connect(inputData)
+
 
 # Muestra la ventana
 window.show()

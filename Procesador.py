@@ -6,7 +6,7 @@ import random
 class Procesador:
     def __init__(self, id):
         self.id = id
-        self.cache = Cache() 
+        self.cache = Cache(4) 
     
     #Metodo de probabilidad Poisson
     def poisson(self, lmbd, a, b):
@@ -22,41 +22,39 @@ class Procesador:
         while resultado < a or resultado > b:
             resultado = int(a + random.uniform(0, 1) * (b - a) / lmbd)
         return resultado
+    
 
-    def selectInstr(self):
+    def generar_instruccion(self):
         resultado = self.poisson(5, 0, 2)
         if(resultado == 0):
-            instruccion = self.read("read")
-            print(instruccion)
+            instruccion = self.generar_read()
+            self.moesi(instruccion)
         elif(resultado == 1):
-            instruccion = self.write("write")
-            print(instruccion)
+            instruccion = self.generar_write()
+            self.moesi(instruccion)
         elif(resultado == 2):
-            instruccion = self.calc("calc")
-            print(instruccion)
+            instruccion = self.generar_calc()
+            self.moesi(instruccion)
         return instruccion
     
-    def read(self, typeInstr):
+    def generar_read(self):
         direccion = self.poisson(10, 0, 7)
-        instruccion = [typeInstr, direccion]
+        instruccion = ["read", direccion]
         return instruccion
     
-    def write(self, typeInstr):
+    def generar_write(self):
         direccion = self.poisson(10, 0, 7)
         dato = hex(self.poisson(100, 0, 65535))
-        instruccion = [typeInstr, direccion, dato]
+        instruccion = ["write", direccion, dato]
         return instruccion
 
-    def calc(self, typeInstr):
-        instruccion = typeInstr
-        return instruccion
+    def generar_calc(self):
+        print("calc")
     
-    def moesi(self):
-        instruccion = self.selectInstr
+    def moesi(self, instruccion):
         if not isinstance(instruccion, list):
             return
         elif (instruccion[0] == "read"):
-            print("read")
+            self.cache.read_instruccion(instruccion)
         elif (instruccion[0] == "write"):
-            print("write")
-
+            self.cache.write_instruccion(instruccion)
