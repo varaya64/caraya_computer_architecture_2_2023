@@ -1,3 +1,6 @@
+"""
+Clase del Bloque de Cache
+"""
 class BloqueCache:
     def __init__(self, id, state, dir, data):
         self.id = id
@@ -8,45 +11,85 @@ class BloqueCache:
     def obtener_estado(self):
         return self.state
 
+"""
+Clase de Cache
+"""
 class Cache:
     def __init__(self, numBloques):
         self.states = ["I", "S", "E", "M", "O"]
         self.bloques = [BloqueCache(i, "I", "000", "000") for i in range(numBloques)]
 
-    
+    #Metodo para hacer un read 
     def read_instruccion(self, instruccion):
-        r_bloque = self.encontrar_bloque()
-        if r_bloque is not None:
-            print("ando leyendo")
-            print(r_bloque.id)
-
+        procesador_id = instruccion[3]
+        for bloque in self.bloques:
+            if bloque.dir == instruccion[1] and bloque.state != "I":
+                print(bloque.data)
+                return ["done"]
+            else:
+                resultado = ["RC", procesador_id, instruccion[1],0]
+                return resultado
+    
+    #Metodo para hacer un read
     def write_instruccion(self, instruccion):
+        
         #Encuentro bloque disponible segun jerarquia
         w_bloque = self.encontrar_bloque() 
+        print(F"Bloque.state: {w_bloque.state}")
         #Write para el caso 1
-        if (w_bloque.state == "I" or w_bloque == "E" or w_bloque.state == "S"):
+        if (w_bloque.state == "I" or w_bloque.state == "E" or w_bloque.state == "S"):
             w_bloque.dir = instruccion[1]
             w_bloque.data = instruccion[2]
             w_bloque.state = "M"
-            return ["Done"]
+            procesador_id = instruccion[3]
+            return ["done"]
+            #print("Done")
+       
         #Write para el caso 2
         elif (w_bloque.state == "M"):
-            print("Write Back")
-            return ["WB", instruccion[1], instruccion[2]]
-           
+            w_bloque.dir = instruccion[1]
+            w_bloque.data = instruccion[2]
+            w_bloque.state = "M"
+            procesador_id = instruccion[3]
+            return ["WB", procesador_id, w_bloque.dir, w_bloque.data]
+       
         #Write para el caso 3
         elif (w_bloque.state == "O"):
-            print("write nack")
-            print("Invalidacion por Escritura")
-            return ["WB", "IE", instruccion[1], instruccion[2]]
+            w_bloque.dir = instruccion[1]
+            w_bloque.data = instruccion[2]
+            w_bloque.state = "M"
+            procesador_id = instruccion[3]
+            return ["IE", procesador_id, w_bloque.dir, w_bloque.data]
 
+    #Metodo para encontrar un bloque de cache disponible
     def encontrar_bloque(self):
         for state in self.states:
             bloque = self.encontrar_bloque_aux(state)
-            return bloque
-
+            if bloque != None:
+                return bloque
+                
+        
+    
+    #Metodo para encontrar bloque de cache disponible auxiliar
     def encontrar_bloque_aux(self, state):
         for bloque in self.bloques:
             if (state == bloque.state):
                 return bloque
-        
+        return None
+            
+    def actualizar_bloque(self, direccion):
+        for bloque in self.bloques:
+            if bloque.dir == direccion and bloque != "I":
+                if bloque.state == "E":
+                    bloque.state = "S"
+                elif bloque.state == "M":
+                    bloque.state = "O"
+                return bloque.data
+        return None
+            
+    def invalidar_bloque(self, dir):
+        for bloque in self.bloques:
+            if bloque.dir == dir:
+                bloque.state = "I"
+            else:
+                return
