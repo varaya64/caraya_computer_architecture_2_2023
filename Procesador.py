@@ -3,6 +3,8 @@ from Memoria import *
 from Sistema import *
 from math import exp
 import random
+import threading
+import time
 
 """
 Clase del Procesador
@@ -13,9 +15,12 @@ class Procesador:
         self.cache = Cache(4)
         self.bus = bus
         self.sistema = sistema
-        self.ultima_instruccion = F"{self.id} hola esta es mi instruccion"
+        self.instruccion_actual = F"P{self.id} init"
+        self.instruccion_anterior = ""
         self.instruction_done = True
         self.num_instrucciones = 0
+        self.instruccion_manual = 0
+        self.miss = " "
 
     
     #Metodo de probabilidad Poisson
@@ -75,11 +80,14 @@ class Procesador:
     
     def procesar_instruccion(self,instruccion):
         # print("FP{self.id} procesando {instruccion}")
-        self.ultima_instruccion = instruccion
+        self.instruccion_anterior = self.instruccion_actual
+        self.instruccion_actual = instruccion
+        
         tipo = instruccion[0]
         self.instruction_done = False
         
         if tipo == "read":
+            self.miss = "read miss"
             resultado = self.cache.read_instruccion(instruccion)
             if resultado[0] == "done":
                 self.instruction_done = True
@@ -88,6 +96,9 @@ class Procesador:
                 self.bus.instrucciones.append(resultado)
             
         elif tipo == "write":
+            self.miss = "write miss"
+            resultado = ["IE", self.id, instruccion[1], instruccion[2]]
+            self.bus.instrucciones.append(resultado)
             resultado = self.cache.write_instruccion(instruccion)
             if resultado[0] == "done":
                 self.instruction_done = True
@@ -96,8 +107,23 @@ class Procesador:
                 self.bus.instrucciones.append(resultado)
                 self.instruction_done = True
                 
+            
+
+            
+        elif tipo == "read-w" or tipo == "read-wm":
+            resultado = self.cache.write_read_instruccion(instruccion)
+            if resultado[0] == "done":
+                self.instruction_done = True
+                #print(F"P{self.id} Write done")
+            else:
+                self.bus.instrucciones.append(resultado)
+                self.instruction_done = True
+            
+
+                
         elif tipo == "calc":
             #print(F"P{self.id} Calc done")
+            self.miss = " "
             self.instruction_done = True
         
 
@@ -107,10 +133,14 @@ class Procesador:
             instruccion_id = instruccion_bus[1]
             direccion = instruccion_bus[2]
             dato = instruccion_bus[3]
-            if instruccion_id != self.id:
-                if instruccion_bus[0] == "IE":
-                    self.cache.invalidar_bloque(direccion)
+            if instruccion_id != self.id: #si la instruccion es de otro procesador
+                if instruccion_bus[0] == "IE" or instruccion_bus[0] == "IE-WB":
+                    resultado = self.cache.invalidar_bloque(direccion)
+                    if resultado != None:
+                        instruccion = ["WB", self.id, direccion, resultado]
+                        self.bus.instrucciones.append(instruccion)
                     self.bus.ack.append(self.id)
+                    print(F"P{self.id} append")
             
                 elif instruccion_bus[0] == "RC":
                     data = self.cache.actualizar_bloque(direccion)
@@ -118,38 +148,57 @@ class Procesador:
                         instruccion = ["DR", instruccion_id, direccion, data]
                         self.bus.instrucciones.append(instruccion)
                         self.bus.cache_returned = True
-                    self.bus.ack.append(self.id)  
+                    self.bus.ack.append(self.id)
+                    print(F"P{self.id} append")
                 
                 else:
                     self.bus.ack.append(self.id) 
+                    print(F"P{self.id} append")
             
             elif instruccion_bus[0] == "DR":
-                instruccion = ["write", direccion, dato, self.id]
+                instruccion = ["read-w", direccion, dato, self.id]
                 self.instruccion_done = True
                 self.procesar_instruccion(instruccion)
                 self.bus.ack.append(self.id)
+                print(F"P{self.id} append")
+            
+            elif instruccion_bus[0] == "DRM":
+                instruccion = ["read-wm", direccion, dato, self.id]
+                self.instruccion_done = True
+                self.procesar_instruccion(instruccion)
+                self.bus.ack.append(self.id)
+                print(F"P{self.id} append")
             
             else:
                 self.bus.ack.append(self.id)
+                print(F"P{self.id} append")
 
         
     
     def run(self):
+        print(F"P{self.id} inicio en thread {threading.get_ident()}")
+        threading.get_ident()
         while True:
-            if self.sistema.pausa:
-                pass
+            if self.instruccion_manual != 0:
+                instruccion = self.instruccion_manual
+                self.instruccion_manual = 0
             else:
                 instruccion = self.generar_instruccion()
-                #print(F"P{self.id} procesando instruccion: {instruccion}")
-                # for bloque in self.cache.bloques: print(F"P{self.id} Bloque antes->{bloque.id} {bloque.state} {bloque.dir} {bloque.data}")
-                self.procesar_instruccion(instruccion)
-                self.num_instrucciones += 1
-                #print(F"____ P{self.id} ni: {self.num_instrucciones}")
-                # for bloque in self.cache.bloques: print(F"P{self.id} Bloque despues->{bloque.id} {bloque.state} {bloque.dir} {bloque.data}")
-                while not self.instruction_done:
-                    self.escuchar_bus()
-            if self.sistema.ejecucion_continua == False:
-                #print(F"P{self.id} finished ******************")
-                return True
-                
+            self.procesar_instruccion(instruccion)
+            self.num_instrucciones += 1
+            self.sistema.procesadores_comenzaron.append(self.id)
             
+            while len(self.sistema.procesadores_comenzaron) != 4:
+                pass
+            
+            time.sleep(0.5)
+            while len(self.bus.instrucciones) != 0:
+                self.escuchar_bus()
+                time.sleep(0.5)
+            
+            if self.sistema.ejecucion_continua == False:
+                break
+        self.sistema.procesadores_terminaron.append(self.id)
+        print(F"P{self.id} finished ******************")
+        return True
+                

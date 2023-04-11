@@ -1,6 +1,3 @@
-
-
-
 from math import exp
 import threading
 import time
@@ -9,11 +6,18 @@ import random
 import os
 import sys
 clear = lambda: os.system('cls')
-
 from Sistema import *
+
 from PyQt5 import QtCore, QtGui, QtWidgets, uic
 from PyQt5.QtCore import QRunnable, Qt, QThreadPool, QTimer
-from PyQt5.QtWidgets import QMainWindow, QApplication
+from PyQt5.QtWidgets import (
+    QApplication,
+    QLabel,
+    QMainWindow,
+    QPushButton,
+    QVBoxLayout,
+    QWidget,
+)
 
 
 class Window(QMainWindow):
@@ -24,6 +28,8 @@ class Window(QMainWindow):
         self.boton_comenzar.clicked.connect(self.runTasks)
         self.boton_pausa.clicked.connect(self.pausar)
         self.boton_pausa.clicked.connect(self.reanudar)
+        self.boton_siguiente.clicked.connect(self.siguiente_paso)
+        self.sendInstru.clicked.connect(self.enviar_instruccion)
     
         self.dir_000.setText("000")
         self.dir_001.setText("001")
@@ -39,15 +45,29 @@ class Window(QMainWindow):
         
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.actualizar_pantalla)
-        self.timer.start(1000)  # Actualizar el texto cada segundo
+        self.timer.start(100)  # Actualizar el texto cada 100 ms
 
     def runTasks(self):
-        threadCount = QThreadPool.globalInstance().maxThreadCount()
         pool = QThreadPool.globalInstance()
         runnable = Runnable(self.sistema)
         pool.start(runnable)
+    
+    def enviar_instruccion(self):
+        procesador = int(self.pInput.text())
+        direccion = int(self.dirInput.text())
+        dato = self.dataInput.text()
+        operacion = self.opInput.text()
         
-            
+        comando = F"self.sistema.P{procesador}.instruccion_manual = ['{operacion}',{direccion},'{dato}',{procesador}]"
+        
+        print(comando)
+        exec(comando)
+
+    
+    def siguiente_paso(self):
+        self.sistema.ejecucion_continua = False
+        self.runTasks()
+    
     def pausar(self):
         self.sistema.ejecucion_continua = False
     
@@ -56,10 +76,16 @@ class Window(QMainWindow):
         
         
     def actualizar_pantalla(self):
-        self.instruccion1.setText(str(self.sistema.P0.ultima_instruccion))
-        self.instruccion2.setText(str(self.sistema.P1.ultima_instruccion))
-        self.instruccion3.setText(str(self.sistema.P2.ultima_instruccion))
-        self.instruccion4.setText(str(self.sistema.P3.ultima_instruccion))
+        self.instruccion1.setText(str(self.sistema.P0.instruccion_actual))
+        self.instruccion2.setText(str(self.sistema.P1.instruccion_actual))
+        self.instruccion3.setText(str(self.sistema.P2.instruccion_actual))
+        self.instruccion4.setText(str(self.sistema.P3.instruccion_actual))
+        self.instruccionMem.setText(str(self.sistema.MemoriaP.instruccion_actual))
+        
+        self.anterior_P0.setText(str(self.sistema.P0.instruccion_anterior))
+        self.anterior_P1.setText(str(self.sistema.P1.instruccion_anterior))
+        self.anterior_P2.setText(str(self.sistema.P2.instruccion_anterior))
+        self.anterior_P3.setText(str(self.sistema.P3.instruccion_anterior))
         
         #Actualiza datos de memoria
         self.dato_000.setText(str(self.sistema.MemoriaP.bloques[0].data))
@@ -142,6 +168,12 @@ class Window(QMainWindow):
         self.dato_B3_P2.setText(str(self.sistema.P1.cache.bloques[3].data))
         self.dato_B3_P3.setText(str(self.sistema.P2.cache.bloques[3].data))
         self.dato_B3_P4.setText(str(self.sistema.P3.cache.bloques[3].data))
+        
+        #Actualiza datos del Bloque 3
+        self.miss_P0.setText(str(self.sistema.P0.miss))
+        self.miss_P1.setText(str(self.sistema.P1.miss))
+        self.miss_P2.setText(str(self.sistema.P2.miss))
+        self.miss_P3.setText(str(self.sistema.P3.miss))
 
 
 class Runnable(QRunnable):
@@ -152,7 +184,6 @@ class Runnable(QRunnable):
     def run(self):
         self.sistema.run()
 
-
         
         
 if __name__ == '__main__':
@@ -160,5 +191,4 @@ if __name__ == '__main__':
     window = Window()
     window.show()
     sys.exit(app.exec())
-    
     
