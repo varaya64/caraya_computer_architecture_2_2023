@@ -23,13 +23,13 @@ class Memoria:
         self.id = 999
 
     def escucha_bus(self):
-        print("\n")
-        print(F"Bus instrucciones: {self.bus.instrucciones}")
-        print(F"Bus ack: {self.bus.ack}")
-        print(F"P0 inst done: {self.sistema.P0.instruction_done} | Ultima inst: {self.sistema.P0.ultima_instruccion}")
-        print(F"P1 inst done: {self.sistema.P1.instruction_done} | Ultima inst: {self.sistema.P1.ultima_instruccion}")
-        print(F"P2 inst done: {self.sistema.P2.instruction_done} | Ultima inst: {self.sistema.P2.ultima_instruccion}")
-        print(F"P3 inst done: {self.sistema.P3.instruction_done} | Ultima inst: {self.sistema.P3.ultima_instruccion}")
+        # print("\n")
+        # print(F"Bus instrucciones: {self.bus.instrucciones}")
+        # print(F"Bus ack: {self.bus.ack}")
+        # print(F"P0 inst done: {self.sistema.P0.instruction_done} | Ultima inst: {self.sistema.P0.ultima_instruccion}")
+        # print(F"P1 inst done: {self.sistema.P1.instruction_done} | Ultima inst: {self.sistema.P1.ultima_instruccion}")
+        # print(F"P2 inst done: {self.sistema.P2.instruction_done} | Ultima inst: {self.sistema.P2.ultima_instruccion}")
+        # print(F"P3 inst done: {self.sistema.P3.instruction_done} | Ultima inst: {self.sistema.P3.ultima_instruccion}")
         if len(self.bus.instrucciones) > 0 and self.bus.ack.count(self.id) == 0:
             instruccion_bus = self.bus.instrucciones[0]
             #print(F"M{self.id} instruccion bus: {instruccion_bus}")
@@ -67,7 +67,7 @@ class Memoria:
                 
     def run(self):
         while True:
-            if self.sistema.pause:
+            while self.sistema.pausa:
                 pass
             else:
                 self.escucha_bus()

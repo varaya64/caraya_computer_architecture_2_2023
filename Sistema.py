@@ -4,6 +4,9 @@ from math import exp
 import threading
 import time
 
+"""
+Clase del sistema
+"""
 class Sistema:
     def __init__(self):
         self.bus = Bus()
@@ -13,27 +16,34 @@ class Sistema:
         self.P3 = Procesador(3, self.bus, self)
         self.MemoriaP = Memoria(self.bus, self)
         self.ejecucion_continua = True
-        self.pause = False
+        self.pausa = False
+        self.reanudar = False
         self.siguiente_paso = False
         
-        
-        
-           
-    def generateInstru(self, procesador):
-        procesador.generar_instruccion()
-        resultado = procesador.generar_instruccion()
 
     def ejecutarHilos(self):
         # Crear cuatro hilos separados, cada uno ejecutando el método de una instancia diferente de la clase Procesador en paralelo
+        
         threads = []
-        for procesador in [self.bus, self.MemoriaP, self.P0, self.P1, self.P2, self.P3]:
+        for procesador in [self.P0, self.bus, self.MemoriaP, self.P1, self.P2, self.P3]:
             t = threading.Thread(target=procesador.run)
             threads.append(t)
             t.start()
-            time.sleep(1)
         # Esperar a que todos los hilos terminen antes de continuar
         for t in threads:
             t.join()
+            
+    def run(self):
+        
+        self.ejecucion_continua = True # va a ser igual a variable de la interfaz grafica
+        print("Ejecutando hilos...")
+        self.ejecutarHilos()
+        
+        while self.sistema.siguiente_paso == False:
+            self.sistema.siguiente_paso = input() # cambiar por variable de la interfaz grafica
+            pass
+        self.sistema.siguiente_paso = True
+
 
 """
 Clase del Bus de datos
@@ -47,9 +57,30 @@ class Bus:
         
     def run(self):     
         while True:
-            if len(self.ack) ==  5:
-                print(F"Bus cleared instruction: {self.instrucciones[0]} | ACK: {self.ack}")
-                self.instrucciones.pop(0)
-                self.ack = []
-                self.cache_returned = False
+            #print(F"__{len(self.instrucciones)}__")
+            #print(self.ack)
+            if len(self.instrucciones) > 0:
+                tipo = self.instrucciones[0][0]
+                inst_id = self.instrucciones[0][1]
+                if tipo == "WB":
+                    if self.ack.count(999) >= 1:
+                        self.clear_bus()
+                elif tipo == "DR":
+                    if self.ack.count(inst_id) > 0:
+                        self.clear_bus()
+                elif tipo == "IE":
+                    if (self.ack.count(0) + self.ack.count(1) + self.ack.count(2) + self.ack.count(3)) >= 4:
+                        self.clear_bus()
+                elif tipo  == "RC":
+                    if len(self.ack) ==  5:
+                        self.clear_bus()
+                        
+            #time.sleep(0.5)
+            #clear()
                 
+    def clear_bus(self):
+        #print(F"Bus cleared instruction: {self.instrucciones[0]} | ACK: {self.ack}")
+        self.instrucciones.pop(0)
+        self.ack = []
+        self.cache_returned = False
+        

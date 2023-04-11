@@ -13,8 +13,9 @@ class Procesador:
         self.cache = Cache(4)
         self.bus = bus
         self.sistema = sistema
-        self.ultima_instruccion = []
+        self.ultima_instruccion = F"{self.id} hola esta es mi instruccion"
         self.instruction_done = True
+        self.num_instrucciones = 0
 
     
     #Metodo de probabilidad Poisson
@@ -73,6 +74,7 @@ class Procesador:
         
     
     def procesar_instruccion(self,instruccion):
+        # print("FP{self.id} procesando {instruccion}")
         self.ultima_instruccion = instruccion
         tipo = instruccion[0]
         self.instruction_done = False
@@ -81,7 +83,7 @@ class Procesador:
             resultado = self.cache.read_instruccion(instruccion)
             if resultado[0] == "done":
                 self.instruction_done = True
-                print(F"P{self.id} Read done")
+                #print(F"P{self.id} Read done")
             else:
                 self.bus.instrucciones.append(resultado)
             
@@ -89,13 +91,13 @@ class Procesador:
             resultado = self.cache.write_instruccion(instruccion)
             if resultado[0] == "done":
                 self.instruction_done = True
-                print(F"P{self.id} Write done")
+                #print(F"P{self.id} Write done")
             else:
                 self.bus.instrucciones.append(resultado)
                 self.instruction_done = True
                 
         elif tipo == "calc":
-            print(F"P{self.id} Calc done")
+            #print(F"P{self.id} Calc done")
             self.instruction_done = True
         
 
@@ -134,16 +136,20 @@ class Procesador:
     
     def run(self):
         while True:
-            if self.sistema.pause:
+            if self.sistema.pausa:
                 pass
             else:
                 instruccion = self.generar_instruccion()
-                print(F"P{self.id} procesando instruccion: {instruccion}")
+                #print(F"P{self.id} procesando instruccion: {instruccion}")
                 # for bloque in self.cache.bloques: print(F"P{self.id} Bloque antes->{bloque.id} {bloque.state} {bloque.dir} {bloque.data}")
                 self.procesar_instruccion(instruccion)
+                self.num_instrucciones += 1
+                #print(F"____ P{self.id} ni: {self.num_instrucciones}")
                 # for bloque in self.cache.bloques: print(F"P{self.id} Bloque despues->{bloque.id} {bloque.state} {bloque.dir} {bloque.data}")
                 while not self.instruction_done:
                     self.escuchar_bus()
             if self.sistema.ejecucion_continua == False:
-                print(F"P{self.id} finished ******************")
+                #print(F"P{self.id} finished ******************")
                 return True
+                
+            

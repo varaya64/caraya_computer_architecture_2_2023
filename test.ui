@@ -23,7 +23,7 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>530</x>
+      <x>610</x>
       <y>10</y>
       <width>371</width>
       <height>41</height>
@@ -31,33 +31,13 @@
     </property>
     <property name="font">
      <font>
-      <family>Old Antic Outline</family>
+      <family>Arial</family>
       <pointsize>20</pointsize>
      </font>
     </property>
     <property name="text">
      <string>Sistema Multiprocesador</string>
     </property>
-   </widget>
-   <widget class="QTableWidget" name="tableWidget_5">
-    <property name="geometry">
-     <rect>
-      <x>1180</x>
-      <y>90</y>
-      <width>261</width>
-      <height>471</height>
-     </rect>
-    </property>
-    <column>
-     <property name="text">
-      <string>Dirección</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>Dato</string>
-     </property>
-    </column>
    </widget>
    <widget class="Line" name="line">
     <property name="geometry">
@@ -68,40 +48,52 @@
       <height>461</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
     <property name="orientation">
      <enum>Qt::Vertical</enum>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="boton_comenzar">
     <property name="geometry">
      <rect>
-      <x>80</x>
+      <x>70</x>
       <y>20</y>
-      <width>171</width>
+      <width>101</width>
       <height>31</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Old Antic Outline</family>
+      <family>Arial</family>
       <pointsize>11</pointsize>
      </font>
     </property>
     <property name="text">
-     <string>Comenzar Ejecucion</string>
+     <string>Comenzar</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="boton_reanudar">
     <property name="geometry">
      <rect>
-      <x>270</x>
+      <x>310</x>
       <y>20</y>
-      <width>151</width>
+      <width>101</width>
       <height>31</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
     <property name="text">
-     <string>Detener Ejecución</string>
+     <string>Reanudar</string>
     </property>
    </widget>
    <widget class="QComboBox" name="pInput">
@@ -112,6 +104,12 @@
       <width>131</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+      <pointsize>11</pointsize>
+     </font>
     </property>
     <item>
      <property name="text">
@@ -142,6 +140,12 @@
       <width>131</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+      <pointsize>11</pointsize>
+     </font>
     </property>
     <item>
      <property name="text">
@@ -188,10 +192,16 @@
     <property name="geometry">
      <rect>
       <x>100</x>
-      <y>670</y>
-      <width>71</width>
-      <height>16</height>
+      <y>665</y>
+      <width>131</width>
+      <height>21</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+      <pointsize>11</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Procesador</string>
@@ -201,10 +211,16 @@
     <property name="geometry">
      <rect>
       <x>250</x>
-      <y>670</y>
+      <y>665</y>
       <width>71</width>
-      <height>16</height>
+      <height>21</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+      <pointsize>11</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Dirección</string>
@@ -214,10 +230,16 @@
     <property name="geometry">
      <rect>
       <x>400</x>
-      <y>670</y>
+      <y>665</y>
       <width>71</width>
-      <height>16</height>
+      <height>21</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+      <pointsize>11</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Dato</string>
@@ -231,6 +253,12 @@
       <width>131</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+      <pointsize>11</pointsize>
+     </font>
     </property>
     <item>
      <property name="text">
@@ -252,10 +280,16 @@
     <property name="geometry">
      <rect>
       <x>590</x>
-      <y>670</y>
-      <width>71</width>
-      <height>16</height>
+      <y>665</y>
+      <width>91</width>
+      <height>21</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+      <pointsize>11</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Operación</string>
@@ -270,6 +304,12 @@
       <height>41</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
    </widget>
    <widget class="QPushButton" name="sendInstru">
     <property name="geometry">
@@ -279,6 +319,12 @@
       <width>221</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+      <pointsize>11</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Enviar Instrucción</string>
@@ -292,6 +338,12 @@
       <width>411</width>
       <height>261</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+      <pointsize>11</pointsize>
+     </font>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -308,6 +360,12 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
      <property name="text">
       <string>Procesador 3</string>
      </property>
@@ -321,6 +379,12 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
      <property name="text">
       <string>Instruccion:</string>
      </property>
@@ -328,11 +392,17 @@
     <widget class="QLineEdit" name="instruccion3">
      <property name="geometry">
       <rect>
-       <x>210</x>
+       <x>220</x>
        <y>10</y>
-       <width>171</width>
+       <width>161</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
      </property>
     </widget>
     <widget class="QLabel" name="label_8">
@@ -343,6 +413,12 @@
        <width>55</width>
        <height>16</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
      </property>
      <property name="text">
       <string>B0</string>
@@ -357,6 +433,12 @@
        <height>16</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
      <property name="text">
       <string>B1</string>
      </property>
@@ -369,6 +451,12 @@
        <width>55</width>
        <height>16</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
      </property>
      <property name="text">
       <string>B2</string>
@@ -383,6 +471,12 @@
        <height>16</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
      <property name="text">
       <string>B3</string>
      </property>
@@ -390,11 +484,17 @@
     <widget class="QLabel" name="label_12">
      <property name="geometry">
       <rect>
-       <x>120</x>
+       <x>94</x>
        <y>60</y>
-       <width>55</width>
-       <height>16</height>
+       <width>81</width>
+       <height>20</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
      </property>
      <property name="text">
       <string>Estado</string>
@@ -403,11 +503,17 @@
     <widget class="QLabel" name="label_13">
      <property name="geometry">
       <rect>
-       <x>220</x>
+       <x>210</x>
        <y>60</y>
-       <width>61</width>
-       <height>16</height>
+       <width>81</width>
+       <height>20</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
      </property>
      <property name="text">
       <string>Direccion</string>
@@ -422,11 +528,17 @@
        <height>16</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
      <property name="text">
       <string>Dato</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_2">
+    <widget class="QLineEdit" name="estado_B0_P3">
      <property name="geometry">
       <rect>
        <x>90</x>
@@ -435,8 +547,14 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_3">
+    <widget class="QLineEdit" name="dir_B0_P3">
      <property name="geometry">
       <rect>
        <x>200</x>
@@ -445,8 +563,14 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_4">
+    <widget class="QLineEdit" name="dato_B0_P3">
      <property name="geometry">
       <rect>
        <x>310</x>
@@ -455,8 +579,14 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_5">
+    <widget class="QLineEdit" name="dato_B1_P3">
      <property name="geometry">
       <rect>
        <x>310</x>
@@ -465,8 +595,14 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_6">
+    <widget class="QLineEdit" name="estado_B1_P3">
      <property name="geometry">
       <rect>
        <x>90</x>
@@ -475,8 +611,14 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_7">
+    <widget class="QLineEdit" name="dir_B1_P3">
      <property name="geometry">
       <rect>
        <x>200</x>
@@ -485,8 +627,14 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_8">
+    <widget class="QLineEdit" name="dato_B2_P3">
      <property name="geometry">
       <rect>
        <x>310</x>
@@ -495,8 +643,14 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_9">
+    <widget class="QLineEdit" name="estado_B2_P3">
      <property name="geometry">
       <rect>
        <x>90</x>
@@ -505,8 +659,14 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_10">
+    <widget class="QLineEdit" name="dir_B2_P3">
      <property name="geometry">
       <rect>
        <x>200</x>
@@ -515,8 +675,14 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_11">
+    <widget class="QLineEdit" name="dato_B3_P3">
      <property name="geometry">
       <rect>
        <x>310</x>
@@ -525,8 +691,14 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_12">
+    <widget class="QLineEdit" name="estado_B3_P3">
      <property name="geometry">
       <rect>
        <x>90</x>
@@ -535,8 +707,14 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_13">
+    <widget class="QLineEdit" name="dir_B3_P3">
      <property name="geometry">
       <rect>
        <x>200</x>
@@ -544,6 +722,12 @@
        <width>91</width>
        <height>21</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
      </property>
     </widget>
    </widget>
@@ -555,6 +739,12 @@
       <width>411</width>
       <height>261</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+      <pointsize>11</pointsize>
+     </font>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -571,6 +761,12 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
      <property name="text">
       <string>Procesador 4</string>
      </property>
@@ -584,6 +780,12 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
      <property name="text">
       <string>Instruccion:</string>
      </property>
@@ -591,11 +793,17 @@
     <widget class="QLineEdit" name="instruccion4">
      <property name="geometry">
       <rect>
-       <x>210</x>
+       <x>220</x>
        <y>10</y>
-       <width>171</width>
+       <width>161</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
      </property>
     </widget>
     <widget class="QLabel" name="label_17">
@@ -606,6 +814,12 @@
        <width>55</width>
        <height>16</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
      </property>
      <property name="text">
       <string>B0</string>
@@ -620,6 +834,12 @@
        <height>16</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
      <property name="text">
       <string>B1</string>
      </property>
@@ -632,6 +852,12 @@
        <width>55</width>
        <height>16</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
      </property>
      <property name="text">
       <string>B2</string>
@@ -646,6 +872,12 @@
        <height>16</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
      <property name="text">
       <string>B3</string>
      </property>
@@ -653,11 +885,17 @@
     <widget class="QLabel" name="label_21">
      <property name="geometry">
       <rect>
-       <x>120</x>
+       <x>94</x>
        <y>60</y>
-       <width>55</width>
-       <height>16</height>
+       <width>81</width>
+       <height>20</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
      </property>
      <property name="text">
       <string>Estado</string>
@@ -666,11 +904,17 @@
     <widget class="QLabel" name="label_22">
      <property name="geometry">
       <rect>
-       <x>220</x>
+       <x>210</x>
        <y>60</y>
-       <width>61</width>
-       <height>16</height>
+       <width>81</width>
+       <height>20</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
      </property>
      <property name="text">
       <string>Direccion</string>
@@ -685,11 +929,17 @@
        <height>16</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
      <property name="text">
       <string>Dato</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_15">
+    <widget class="QLineEdit" name="estado_B0_P4">
      <property name="geometry">
       <rect>
        <x>90</x>
@@ -698,8 +948,14 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_16">
+    <widget class="QLineEdit" name="dir_B0_P4">
      <property name="geometry">
       <rect>
        <x>200</x>
@@ -708,8 +964,14 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_17">
+    <widget class="QLineEdit" name="dato_B0_P4">
      <property name="geometry">
       <rect>
        <x>310</x>
@@ -718,8 +980,14 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_18">
+    <widget class="QLineEdit" name="dato_B1_P4">
      <property name="geometry">
       <rect>
        <x>310</x>
@@ -728,8 +996,14 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_19">
+    <widget class="QLineEdit" name="estado_B1_P4">
      <property name="geometry">
       <rect>
        <x>90</x>
@@ -738,8 +1012,14 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_20">
+    <widget class="QLineEdit" name="dir_B1_P4">
      <property name="geometry">
       <rect>
        <x>200</x>
@@ -748,8 +1028,14 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_21">
+    <widget class="QLineEdit" name="dato_B2_P4">
      <property name="geometry">
       <rect>
        <x>310</x>
@@ -758,8 +1044,14 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_22">
+    <widget class="QLineEdit" name="estado_B2_P4">
      <property name="geometry">
       <rect>
        <x>90</x>
@@ -768,8 +1060,14 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_23">
+    <widget class="QLineEdit" name="dir_B2_P4">
      <property name="geometry">
       <rect>
        <x>200</x>
@@ -778,8 +1076,14 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_24">
+    <widget class="QLineEdit" name="dato_B3_P4">
      <property name="geometry">
       <rect>
        <x>310</x>
@@ -788,8 +1092,14 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_25">
+    <widget class="QLineEdit" name="estado_B3_P4">
      <property name="geometry">
       <rect>
        <x>90</x>
@@ -798,8 +1108,14 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_26">
+    <widget class="QLineEdit" name="dir_B3_P4">
      <property name="geometry">
       <rect>
        <x>200</x>
@@ -807,17 +1123,29 @@
        <width>91</width>
        <height>21</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
      </property>
     </widget>
    </widget>
    <widget class="QFrame" name="frame_3">
     <property name="geometry">
      <rect>
-      <x>60</x>
+      <x>70</x>
       <y>80</y>
       <width>411</width>
       <height>261</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+      <pointsize>11</pointsize>
+     </font>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -834,6 +1162,12 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
      <property name="text">
       <string>Procesador 1</string>
      </property>
@@ -847,6 +1181,12 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
      <property name="text">
       <string>Instruccion:</string>
      </property>
@@ -854,11 +1194,17 @@
     <widget class="QLineEdit" name="instruccion1">
      <property name="geometry">
       <rect>
-       <x>210</x>
+       <x>220</x>
        <y>10</y>
-       <width>171</width>
+       <width>161</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
      </property>
     </widget>
     <widget class="QLabel" name="label_26">
@@ -869,6 +1215,12 @@
        <width>55</width>
        <height>16</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
      </property>
      <property name="text">
       <string>B0</string>
@@ -883,6 +1235,12 @@
        <height>16</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
      <property name="text">
       <string>B1</string>
      </property>
@@ -895,6 +1253,12 @@
        <width>55</width>
        <height>16</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
      </property>
      <property name="text">
       <string>B2</string>
@@ -909,6 +1273,12 @@
        <height>16</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
      <property name="text">
       <string>B3</string>
      </property>
@@ -916,11 +1286,17 @@
     <widget class="QLabel" name="label_30">
      <property name="geometry">
       <rect>
-       <x>120</x>
+       <x>94</x>
        <y>60</y>
-       <width>55</width>
-       <height>16</height>
+       <width>81</width>
+       <height>20</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
      </property>
      <property name="text">
       <string>Estado</string>
@@ -929,11 +1305,17 @@
     <widget class="QLabel" name="label_31">
      <property name="geometry">
       <rect>
-       <x>220</x>
+       <x>210</x>
        <y>60</y>
-       <width>61</width>
-       <height>16</height>
+       <width>81</width>
+       <height>20</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
      </property>
      <property name="text">
       <string>Direccion</string>
@@ -948,11 +1330,17 @@
        <height>16</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
      <property name="text">
       <string>Dato</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_28">
+    <widget class="QLineEdit" name="estado_B0_P1">
      <property name="geometry">
       <rect>
        <x>90</x>
@@ -961,8 +1349,14 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_29">
+    <widget class="QLineEdit" name="dir_B0_P1">
      <property name="geometry">
       <rect>
        <x>200</x>
@@ -971,8 +1365,14 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_30">
+    <widget class="QLineEdit" name="dato_B0_P1">
      <property name="geometry">
       <rect>
        <x>310</x>
@@ -981,8 +1381,14 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_31">
+    <widget class="QLineEdit" name="dato_B1_P1">
      <property name="geometry">
       <rect>
        <x>310</x>
@@ -991,8 +1397,14 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_32">
+    <widget class="QLineEdit" name="estado_B1_P1">
      <property name="geometry">
       <rect>
        <x>90</x>
@@ -1001,8 +1413,14 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_33">
+    <widget class="QLineEdit" name="dir_B1_P1">
      <property name="geometry">
       <rect>
        <x>200</x>
@@ -1011,8 +1429,14 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_34">
+    <widget class="QLineEdit" name="dato_B2_P1">
      <property name="geometry">
       <rect>
        <x>310</x>
@@ -1021,8 +1445,14 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_35">
+    <widget class="QLineEdit" name="estado_B2_P1">
      <property name="geometry">
       <rect>
        <x>90</x>
@@ -1031,8 +1461,14 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_36">
+    <widget class="QLineEdit" name="dir_B2_P1">
      <property name="geometry">
       <rect>
        <x>200</x>
@@ -1041,8 +1477,14 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_37">
+    <widget class="QLineEdit" name="dato_B3_P1">
      <property name="geometry">
       <rect>
        <x>310</x>
@@ -1051,8 +1493,14 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_38">
+    <widget class="QLineEdit" name="estado_B3_P1">
      <property name="geometry">
       <rect>
        <x>90</x>
@@ -1061,8 +1509,14 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_39">
+    <widget class="QLineEdit" name="dir_B3_P1">
      <property name="geometry">
       <rect>
        <x>200</x>
@@ -1070,6 +1524,12 @@
        <width>91</width>
        <height>21</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
      </property>
     </widget>
    </widget>
@@ -1081,6 +1541,12 @@
       <width>411</width>
       <height>261</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+      <pointsize>11</pointsize>
+     </font>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -1097,6 +1563,12 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
      <property name="text">
       <string>Procesador 2</string>
      </property>
@@ -1106,9 +1578,15 @@
       <rect>
        <x>120</x>
        <y>10</y>
-       <width>91</width>
+       <width>101</width>
        <height>21</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
      </property>
      <property name="text">
       <string>Instruccion:</string>
@@ -1117,11 +1595,17 @@
     <widget class="QLineEdit" name="instruccion2">
      <property name="geometry">
       <rect>
-       <x>210</x>
+       <x>220</x>
        <y>10</y>
-       <width>171</width>
+       <width>161</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
      </property>
     </widget>
     <widget class="QLabel" name="label_35">
@@ -1132,6 +1616,12 @@
        <width>55</width>
        <height>16</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
      </property>
      <property name="text">
       <string>B0</string>
@@ -1146,6 +1636,12 @@
        <height>16</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
      <property name="text">
       <string>B1</string>
      </property>
@@ -1158,6 +1654,12 @@
        <width>55</width>
        <height>16</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
      </property>
      <property name="text">
       <string>B2</string>
@@ -1172,6 +1674,12 @@
        <height>16</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
      <property name="text">
       <string>B3</string>
      </property>
@@ -1185,6 +1693,12 @@
        <height>16</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
      <property name="text">
       <string>Estado</string>
      </property>
@@ -1192,11 +1706,17 @@
     <widget class="QLabel" name="label_40">
      <property name="geometry">
       <rect>
-       <x>220</x>
+       <x>210</x>
        <y>60</y>
-       <width>61</width>
-       <height>16</height>
+       <width>81</width>
+       <height>20</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
      </property>
      <property name="text">
       <string>Direccion</string>
@@ -1211,11 +1731,17 @@
        <height>16</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
      <property name="text">
       <string>Dato</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_41">
+    <widget class="QLineEdit" name="estado_B0_P2">
      <property name="geometry">
       <rect>
        <x>90</x>
@@ -1224,8 +1750,14 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_42">
+    <widget class="QLineEdit" name="dir_B0_P2">
      <property name="geometry">
       <rect>
        <x>200</x>
@@ -1234,8 +1766,14 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_43">
+    <widget class="QLineEdit" name="dato_B0_P2">
      <property name="geometry">
       <rect>
        <x>310</x>
@@ -1244,8 +1782,14 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_44">
+    <widget class="QLineEdit" name="dato_B1_P2">
      <property name="geometry">
       <rect>
        <x>310</x>
@@ -1254,8 +1798,14 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_45">
+    <widget class="QLineEdit" name="estado_B1_P2">
      <property name="geometry">
       <rect>
        <x>90</x>
@@ -1264,8 +1814,14 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_46">
+    <widget class="QLineEdit" name="dir_B1_P2">
      <property name="geometry">
       <rect>
        <x>200</x>
@@ -1274,8 +1830,14 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_47">
+    <widget class="QLineEdit" name="dato_B2_P2">
      <property name="geometry">
       <rect>
        <x>310</x>
@@ -1284,8 +1846,14 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_48">
+    <widget class="QLineEdit" name="estado_B2_P2">
      <property name="geometry">
       <rect>
        <x>90</x>
@@ -1294,8 +1862,14 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_49">
+    <widget class="QLineEdit" name="dir_B2_P2">
      <property name="geometry">
       <rect>
        <x>200</x>
@@ -1304,8 +1878,14 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_50">
+    <widget class="QLineEdit" name="dato_B3_P2">
      <property name="geometry">
       <rect>
        <x>310</x>
@@ -1314,8 +1894,14 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_51">
+    <widget class="QLineEdit" name="estado_B3_P2">
      <property name="geometry">
       <rect>
        <x>90</x>
@@ -1324,8 +1910,14 @@
        <height>21</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_52">
+    <widget class="QLineEdit" name="dir_B3_P2">
      <property name="geometry">
       <rect>
        <x>200</x>
@@ -1333,6 +1925,366 @@
        <width>91</width>
        <height>21</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="boton_pausa">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>20</y>
+      <width>101</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Pausa</string>
+    </property>
+   </widget>
+   <widget class="QFrame" name="frame_5">
+    <property name="geometry">
+     <rect>
+      <x>1110</x>
+      <y>80</y>
+      <width>301</width>
+      <height>561</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="label_42">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>40</y>
+       <width>91</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Direccion</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_43">
+     <property name="geometry">
+      <rect>
+       <x>180</x>
+       <y>40</y>
+       <width>71</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Dato</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="dir_000">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>90</y>
+       <width>113</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="dato_000">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>90</y>
+       <width>113</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="dato_001">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>140</y>
+       <width>113</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="dir_001">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>140</y>
+       <width>113</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="dato_010">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>190</y>
+       <width>113</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="dir_010">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>190</y>
+       <width>113</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="dato_011">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>240</y>
+       <width>113</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="dir_011">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>240</y>
+       <width>113</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="dato_100">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>290</y>
+       <width>113</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="dir_100">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>290</y>
+       <width>113</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="dato_101">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>340</y>
+       <width>113</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="dir_101">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>340</y>
+       <width>113</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="dato_110">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>390</y>
+       <width>113</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="dir_110">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>390</y>
+       <width>113</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="dir_111">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>430</y>
+       <width>113</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="dato_111">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>430</y>
+       <width>113</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_44">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>10</y>
+       <width>101</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Memoria</string>
      </property>
     </widget>
    </widget>

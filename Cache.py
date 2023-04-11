@@ -24,7 +24,7 @@ class Cache:
         procesador_id = instruccion[3]
         for bloque in self.bloques:
             if bloque.dir == instruccion[1] and bloque.state != "I":
-                print(bloque.data)
+                #print(bloque.data)
                 return ["done"]
             else:
                 resultado = ["RC", procesador_id, instruccion[1],0]
@@ -35,7 +35,7 @@ class Cache:
         
         #Encuentro bloque disponible segun jerarquia
         w_bloque = self.encontrar_bloque() 
-        print(F"Bloque.state: {w_bloque.state}")
+        #print(F"Bloque.state: {w_bloque.state}")
         #Write para el caso 1
         if (w_bloque.state == "I" or w_bloque.state == "E" or w_bloque.state == "S"):
             w_bloque.dir = instruccion[1]
@@ -91,5 +91,5 @@ class Cache:
         for bloque in self.bloques:
             if bloque.dir == dir:
                 bloque.state = "I"
-            else:
-                return
+                break
+        
