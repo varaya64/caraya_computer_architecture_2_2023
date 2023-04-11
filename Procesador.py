@@ -140,7 +140,7 @@ class Procesador:
                         instruccion = ["WB", self.id, direccion, resultado]
                         self.bus.instrucciones.append(instruccion)
                     self.bus.ack.append(self.id)
-                    print(F"P{self.id} append")
+                    #print(F"P{self.id} append")
             
                 elif instruccion_bus[0] == "RC":
                     data = self.cache.actualizar_bloque(direccion)
@@ -149,34 +149,34 @@ class Procesador:
                         self.bus.instrucciones.append(instruccion)
                         self.bus.cache_returned = True
                     self.bus.ack.append(self.id)
-                    print(F"P{self.id} append")
+                    #print(F"P{self.id} append")
                 
                 else:
                     self.bus.ack.append(self.id) 
-                    print(F"P{self.id} append")
+                    #print(F"P{self.id} append")
             
             elif instruccion_bus[0] == "DR":
                 instruccion = ["read-w", direccion, dato, self.id]
                 self.instruccion_done = True
                 self.procesar_instruccion(instruccion)
                 self.bus.ack.append(self.id)
-                print(F"P{self.id} append")
+                #print(F"P{self.id} append")
             
             elif instruccion_bus[0] == "DRM":
                 instruccion = ["read-wm", direccion, dato, self.id]
                 self.instruccion_done = True
                 self.procesar_instruccion(instruccion)
                 self.bus.ack.append(self.id)
-                print(F"P{self.id} append")
+                #print(F"P{self.id} append")
             
             else:
                 self.bus.ack.append(self.id)
-                print(F"P{self.id} append")
+                #print(F"P{self.id} append")
 
         
     
     def run(self):
-        print(F"P{self.id} inicio en thread {threading.get_ident()}")
+        #print(F"P{self.id} inicio en thread {threading.get_ident()}")
         threading.get_ident()
         while True:
             if self.instruccion_manual != 0:
@@ -198,6 +198,7 @@ class Procesador:
             
             if self.sistema.ejecucion_continua == False:
                 break
+            break
         self.sistema.procesadores_terminaron.append(self.id)
         print(F"P{self.id} finished ******************")
         return True

@@ -36,8 +36,6 @@ class Sistema:
         for t in threads:
             t.join()
             
-        
-            
         print("Termino ejecutar hilos...")
         return True
             
@@ -46,8 +44,11 @@ class Sistema:
             print("Ejecutando hilos...")
             self.procesadores_terminaron = []
             self.procesadores_comenzaron = []
-            time.sleep(0.2)
-            return self.ejecutarHilos()
+            time.sleep(1)
+            self.ejecutarHilos()
+            time.sleep(1)
+            if self.ejecucion_continua == False:
+                return True
         
 
 
@@ -63,20 +64,25 @@ class Bus:
         self.sistema = sistema
         
     def run(self):
-        print(F"Bus inicio en thread {threading.get_ident()}")
-        #time.sleep(0.5)
-        while not len(self.sistema.procesadores_terminaron) == 4:
-            if len(self.instrucciones) > 0:
-                if len(self.ack) == 5:
-                    self.clear_bus()
+        while True:
+            #print(F"Bus inicio en thread {threading.get_ident()}")
             #time.sleep(0.5)
+            while not len(self.sistema.procesadores_terminaron) == 4:
+                if len(self.instrucciones) > 0:
+                    if len(self.ack) == 5:
+                        self.clear_bus()
+                #time.sleep(0.5)
+            if self.sistema.ejecucion_continua == False:
+                break
+            break
         print("Bus finished ******************")
         return True 
                 
     def clear_bus(self):
-        print(F"Bus: {self.instrucciones}")
-        print(F"Bus cleared instruction: {self.instrucciones[0]} | ACK: {self.ack}")
+        #print(F"Bus: {self.instrucciones}")
+        #print(F"Bus cleared instruction: {self.instrucciones[0]} | ACK: {self.ack}")
         self.instrucciones.pop(0)
         self.ack = []
         self.cache_returned = False
+        
         

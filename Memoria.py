@@ -59,7 +59,7 @@ class Memoria:
             
                 
     def run(self):
-        print(F"M{self.id} inicio en thread {threading.get_ident()}")
+        #print(F"M{self.id} inicio en thread {threading.get_ident()}")
         while True:
             while len(self.sistema.procesadores_comenzaron) != 4:
                 pass
@@ -69,6 +69,8 @@ class Memoria:
                 #time.sleep(1)
             if self.sistema.ejecucion_continua == False:
                 break
+            break
         print(F"M{self.id} finished ******************")
         return True
+                
                 

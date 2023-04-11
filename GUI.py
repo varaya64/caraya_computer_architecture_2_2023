@@ -19,15 +19,13 @@ from PyQt5.QtWidgets import (
     QWidget,
 )
 
-
 class Window(QMainWindow):
     def __init__(self, parent=None):
         super().__init__(parent)
         uic.loadUi("test.ui", self)
         self.sistema = Sistema()
-        self.boton_comenzar.clicked.connect(self.runTasks)
+        self.boton_comenzar.clicked.connect(self.comenzar)
         self.boton_pausa.clicked.connect(self.pausar)
-        self.boton_pausa.clicked.connect(self.reanudar)
         self.boton_siguiente.clicked.connect(self.siguiente_paso)
         self.sendInstru.clicked.connect(self.enviar_instruccion)
     
@@ -71,8 +69,9 @@ class Window(QMainWindow):
     def pausar(self):
         self.sistema.ejecucion_continua = False
     
-    def reanudar(self):
+    def comenzar(self):
         self.sistema.ejecucion_continua = True
+        self.runTasks()
         
         
     def actualizar_pantalla(self):
@@ -183,6 +182,7 @@ class Runnable(QRunnable):
 
     def run(self):
         self.sistema.run()
+
 
         
         

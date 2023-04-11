@@ -11,7 +11,6 @@ class BloqueCache:
     def obtener_estado(self):
         return self.state
 
-
 """
 Clase de Cache
 """
@@ -151,4 +150,4 @@ class Cache:
                     return bloque.data
                 else:
                     bloque.state = "I"
-        return None      
+        return None
